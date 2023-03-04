@@ -1,0 +1,17 @@
+package com.example.demo.service;
+
+public class ResourceNotFoundException extends RuntimeException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2437474697516521871L;
+
+	public ResourceNotFoundException(String message, String string, Long id) {
+        super(message);
+    }
+
+	public ResourceNotFoundException(String message, String string, String vendorCode) {
+		// TODO Auto-generated constructor stub
+		super(message);
+	}
+}

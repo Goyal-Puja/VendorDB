@@ -1,0 +1,11 @@
+package com.example.demo.service;
+
+public class ResourceNotFoundException extends RuntimeException {
+    public ResourceNotFoundException(String message, String string, Long id) {
+        super(message);
+    }
+
+	public ResourceNotFoundException(String message, String string, String vendorCode) {
+		// TODO Auto-generated constructor stub
+	}
+}

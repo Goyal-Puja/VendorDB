@@ -1,0 +1,94 @@
+package com.example.demo;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Before;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.example.demo.entity.Vendor;
+import com.example.demo.serviceimpl.VendorServiceImpl;
+
+@SpringBootTest
+class VendordbApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+	@Autowired
+    private VendorServiceImpl vendorServiceImpl;
+
+    private Vendor vendor1;
+ 
+
+    @Before(value = "")
+    public void setUp() throws Exception {
+        vendor1 = new Vendor();
+        vendor1.setId(53);
+        vendor1.setVendorName("Vendor 1");
+        vendor1.setAddress("123 Main St");
+        vendor1.setPhone("555-555-5555");
+        vendor1.setCity("xyz");
+        vendor1.setState("abc");
+        vendor1.setPincode("123478");
+        vendor1.setEmail("vendor1@gmail.com");
+        vendor1.setVendorCode("748596");
+        
+        
+
+       
+    }
+
+    @After
+//    public void tearDown() throws Exception {
+//        VendorServiceImpl.deleteAllVendors();
+//    }
+(value = "")
+
+    @Test
+    public void testCreateVendor() {
+        vendorServiceImpl.createVendor(vendor1);
+        assertNotNull(vendor1.getId());
+        Vendor retrievedVendor = vendorServiceImpl.getVendorById(vendor1.getId());
+        assertEquals(vendor1, retrievedVendor);
+    }
+
+    @Test
+    public void testGetVendorById() {
+        vendorServiceImpl.createVendor(vendor1);
+        Vendor retrievedVendor = vendorServiceImpl.getVendorById(vendor1.getId());
+        assertEquals(vendor1, retrievedVendor);
+    }
+
+//    @Test
+//    public void testGetAllVendors() {
+//        vendorService.createVendor(vendor1);
+//        vendorService.createVendor(vendor2);
+//        List<Vendor> vendors = vendorService.getAllVendors();
+//        assertEquals(2, vendors.size());
+//        assertEquals(vendor1, vendors.get(0));
+//        assertEquals(vendor2, vendors.get(1));
+//    }
+
+    @Test
+    public void testUpdateVendor() {
+        vendorServiceImpl.createVendor(vendor1);
+        vendor1.setVendorName("Updated Vendor 1");
+        vendorServiceImpl.updateVendor(null, vendor1);
+        Vendor retrievedVendor = vendorServiceImpl.getVendorById(vendor1.getId());
+        assertEquals("Updated Vendor 1", retrievedVendor.getVendorCode());
+    }
+
+    @Test
+    public void testDeleteVendor() {
+        vendorServiceImpl.createVendor(vendor1);
+        vendorServiceImpl.deleteVendor(vendor1.getId());
+        Vendor retrievedVendor = vendorServiceImpl.getVendorById(vendor1.getId());
+        assertNull(retrievedVendor);
+    }
+
+}

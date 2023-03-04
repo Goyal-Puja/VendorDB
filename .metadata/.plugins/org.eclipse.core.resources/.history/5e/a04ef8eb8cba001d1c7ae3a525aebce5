@@ -1,0 +1,54 @@
+package com.example.demo.serviceimpl;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+
+import org.springframework.test.context.junit4.SpringRunner;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import com.example.demo.entity.Vendor;
+import com.example.demo.repository.VendorRepository;
+import com.example.demo.service.VendorService;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+class VendorServiceImplTest {
+
+	@Autowired
+	   private VendorService vendorService;
+
+	   @MockBean
+	   private VendorRepository vendorRepository;
+
+	   @Test
+	   public void createVendor() {
+	       Vendor vendor = new Vendor();
+	       vendor.setVendorName("Test Vendor");
+	       vendor.setVendorCode("TESTVENDOR");
+	       vendor.setAddress("123 Test St");
+	       vendor.setCity("Testville");
+	       vendor.setState("TS");
+	       vendor.setPincode("123456");
+	       vendor.setPhone("1234567890");
+	       vendor.setEmail("testvendor@test.com");
+
+	       Mockito.when(vendorRepository.save(Mockito.any(Vendor.class))).thenReturn(vendor);
+
+	       Vendor createdVendor = vendorService.createVendor(vendor);
+
+	       assertEquals(vendor.getVendorName(), createdVendor.getVendorName());
+	       assertEquals(vendor.getVendorCode(), createdVendor.getVendorCode());
+	       assertEquals(vendor.getAddress(), createdVendor.getAddress());
+	       assertEquals(vendor.getCity(), createdVendor.getCity());
+	       assertEquals(vendor.getState(), createdVendor.getState());
+	       assertEquals(vendor.getPincode(), createdVendor.getPincode());
+	       assertEquals(vendor.getPhone(), createdVendor.getPhone());
+	       assertEquals(vendor.getEmail(), createdVendor.getEmail());
+	   }
+
+}
