@@ -8,15 +8,23 @@ with Java 8 as the primary technologies. MySQL is used as the database to store 
 
 ## API Endpoints
 
-Create a new vendor
+# Create a new vendor
 <pre>
 POST /vendors: create a new vendor with the provided data in the request body.
 </pre>
-Get all vendors
+# Get all vendors
+<pre>
 GET /vendors/getAll: retrieve a list of all vendors.
-Get a vendor by id
+</pre>
+# Get a vendor by id
+<pre>
 GET /vendors/get/{id}: retrieve the vendor with the specified id.
-Update a vendor
+</pre>
+# Update a vendor
+<pre>
 PUT /vendors/update/{id}: update the vendor with the specified id using the data provided in the request body.
-Delete a vendor
+</pre>
+# Delete a vendor
+<pre>
 DELETE /vendors/delete/{id}: delete the vendor with the specified id.
+</pre>
