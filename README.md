@@ -6,6 +6,10 @@ with Java 8 as the primary technologies. MySQL is used as the database to store 
 <br/>
 <br/>
 
+<pre>
+"Implemented JUnit test cases for CRUD operations of the REST API, ensuring over 90% code coverage for the project."
+</pre>
+
 ## API Endpoints
 
 # Create a new vendor
