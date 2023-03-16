@@ -1,0 +1,367 @@
+package com.example.demo.serviceimpl;
+
+import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.Assert;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+
+import org.springframework.test.context.junit4.SpringRunner;
+import org.mockito.Mockito;
+import org.mockito.Spy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entity.Vendor;
+import com.example.demo.exception.InvalidDataException;
+import com.example.demo.repository.VendorRepository;
+import com.example.demo.service.VendorService;
+import com.example.demo.serviceimpl.*;
+
+//@RunWith(SpringRunner.class)
+@SpringBootTest
+class VendorServiceImplTest {
+
+//	@Autowired
+//	private VendorService vendorService;
+	
+	@Spy
+	private VendorServiceImpl vendorServiceImpl;
+
+//	@MockBean
+//	private VendorRepository vendorRepository;
+	
+//	private static Vendor getVendor() {
+//		Vendor vendor = new Vendor();
+//		vendor.setVendorName("Test Vendor");
+//		vendor.setVendorCode("TESTVENDOR");
+//		vendor.setAddress("123 Test St");
+//		vendor.setCity("Testville");
+//		vendor.setState("TS");
+//		vendor.setPincode("123456");
+//		vendor.setPhone("1234567890");
+//		vendor.setEmail("testvendor@test.com");
+//	    return vendor;	
+//	}
+
+	@Test
+	public void createVendor() {
+		Vendor vendor = new Vendor();
+		vendor.setVendorName("Test Vendor");
+		vendor.setVendorCode("TESTVENDOR");
+		vendor.setAddress("123 Test St");
+		vendor.setCity("Testville");
+		vendor.setState("TS");
+		vendor.setPincode("123456");
+		vendor.setPhone("1234567890");
+		vendor.setEmail("testvendor@test.com");
+
+		//Mockito.when(vendorRepository.save(Mockito.any(Vendor.class))).thenReturn(vendor);
+       
+	//	Vendor createdVendor = vendorService.createVendor(getVendor());
+		assertEquals(vendor, vendorServiceImpl.createVendor(vendor));
+
+//		assertEquals(vendor.getVendorName(), createdVendor.getVendorName());
+//		assertEquals(vendor.getVendorCode(), createdVendor.getVendorCode());
+//		assertEquals(vendor.getAddress(), createdVendor.getAddress());
+//		assertEquals(vendor.getCity(), createdVendor.getCity());
+//		assertEquals(vendor.getState(), createdVendor.getState());
+//		assertEquals(vendor.getPincode(), createdVendor.getPincode());
+//		assertEquals(vendor.getPhone(), createdVendor.getPhone());
+//		assertEquals(vendor.getEmail(), createdVendor.getEmail());
+	}
+
+	@Test
+	public void getVendorById() {
+		Vendor vendor = new Vendor();
+		vendor.setId(1L);
+		vendor.setVendorName("Test Vendor");
+		vendor.setVendorCode("TESTVENDOR");
+		vendor.setAddress("123 Test St");
+		vendor.setCity("Testville");
+		vendor.setState("TS");
+		vendor.setPincode("123456");
+		vendor.setPhone("1234567890");
+		vendor.setEmail("testvendor@test.com");
+
+		Mockito.when(vendorRepository.findById(1L)).thenReturn(Optional.of(vendor));
+
+		Vendor retrievedVendor = vendorService.getVendorById(1L);
+
+		assertEquals(vendor.getVendorName(), retrievedVendor.getVendorName());
+		assertEquals(vendor.getVendorCode(), retrievedVendor.getVendorCode());
+		assertEquals(vendor.getAddress(), retrievedVendor.getAddress());
+		assertEquals(vendor.getCity(), retrievedVendor.getCity());
+		assertEquals(vendor.getState(), retrievedVendor.getState());
+		assertEquals(vendor.getPincode(), retrievedVendor.getPincode());
+		assertEquals(vendor.getPhone(), retrievedVendor.getPhone());
+		assertEquals(vendor.getEmail(), retrievedVendor.getEmail());
+	}
+
+	@Test
+	public void getVendorByVendorCode() {
+		Vendor vendor = new Vendor();
+		vendor.setId(1L);
+		vendor.setVendorName("Test Vendor");
+		vendor.setVendorCode("TESTVENDOR");
+		vendor.setAddress("123 Test St");
+		vendor.setCity("Testville");
+		vendor.setState("TS");
+		vendor.setPincode("123456");
+		vendor.setPhone("1234567890");
+		vendor.setEmail("testvendor@test.com");
+
+		Mockito.when(vendorRepository.findByVendorCode("TESTVENDOR")).thenReturn(Optional.of(vendor));
+
+		Vendor retrievedVendor = vendorService.getVendorByVendorCode("TESTVENDOR");
+
+		assertEquals(vendor.getVendorName(), retrievedVendor.getVendorName());
+		assertEquals(vendor.getVendorCode(), retrievedVendor.getVendorCode());
+		assertEquals(vendor.getAddress(), retrievedVendor.getAddress());
+		assertEquals(vendor.getCity(), retrievedVendor.getCity());
+		assertEquals(vendor.getState(), retrievedVendor.getState());
+		assertEquals(vendor.getPincode(), retrievedVendor.getPincode());
+		assertEquals(vendor.getPhone(), retrievedVendor.getPhone());
+		assertEquals(vendor.getEmail(), retrievedVendor.getEmail());
+	}
+
+	@Test
+	public void updateVendor() {
+		Vendor vendor = new Vendor();
+		vendor.setId(1L);
+		vendor.setVendorName("Test Vendor");
+		vendor.setVendorCode("TESTVENDOR");
+		vendor.setAddress("123 Test St");
+		vendor.setCity("Testville");
+		vendor.setState("TS");
+		vendor.setPincode("123456");
+		vendor.setPhone("1234567890");
+		vendor.setEmail("testvendor@test.com");
+
+		Mockito.when(vendorRepository.findById(1L)).thenReturn(Optional.of(vendor));
+		Mockito.when(vendorRepository.save(Mockito.any(Vendor.class))).thenReturn(vendor);
+
+		Vendor updatedVendor = vendorService.updateVendor(1L, vendor);
+
+		assertEquals(vendor.getVendorName(), updatedVendor.getVendorName());
+		assertEquals(vendor.getVendorCode(), updatedVendor.getVendorCode());
+		assertEquals(vendor.getAddress(), updatedVendor.getAddress());
+		assertEquals(vendor.getCity(), updatedVendor.getCity());
+		assertEquals(vendor.getState(), updatedVendor.getState());
+		assertEquals(vendor.getPincode(), updatedVendor.getPincode());
+		assertEquals(vendor.getPhone(), updatedVendor.getPhone());
+		assertEquals(vendor.getEmail(), updatedVendor.getEmail());
+	}
+
+	@Test
+	public void deleteVendor() {
+		Vendor vendor = new Vendor();
+		vendor.setId(1L);
+		vendor.setVendorName("Test Vendor");
+		vendor.setVendorCode("TESTVENDOR");
+		vendor.setAddress("123 Test St");
+		vendor.setCity("Testville");
+		vendor.setState("TS");
+		vendor.setPincode("123456");
+		vendor.setPhone("1234567890");
+		vendor.setEmail("testvendor@test.com");
+
+		Mockito.when(vendorRepository.findById(1L)).thenReturn(Optional.of(vendor));
+
+		vendorService.deleteVendor(vendor.getId());
+
+		Mockito.verify(vendorRepository, Mockito.times(1)).deleteById(vendor.getId());
+	}
+
+	@Test
+	public void testGetAllVendors() {
+
+		Vendor vendor1 = new Vendor();
+		vendor1.setId(1L);
+		vendor1.setVendorName("Test Vendor");
+		vendor1.setVendorCode("TESTVENDOR");
+		vendor1.setAddress("123 Test St");
+		vendor1.setCity("Testville");
+		vendor1.setState("TS");
+		vendor1.setPincode("123456");
+		vendor1.setPhone("1234567890");
+		vendor1.setEmail("testvendor@test.com");
+
+		List<Vendor> vendors = new ArrayList<>();
+		vendors.add(vendor1);
+
+		Mockito.when(vendorRepository.findAll()).thenReturn(vendors);
+		List<Vendor> result = vendorService.getAllVendors();
+		Mockito.verify(vendorRepository, Mockito.times(1)).findAll();
+
+		assertEquals(vendors, result);
+	}
+	
+//	@Test
+//	public void testValidateVendor() {
+//	    // Valid vendor
+//	    Vendor vendor1 = new Vendor();
+//	    vendor1.setId(1L);
+//		vendor1.setVendorName("Test Vendor");
+//		vendor1.setVendorCode("TESTVENDOR");
+//		vendor1.setAddress("123 Test St");
+//		vendor1.setCity("Testville");
+//		vendor1.setState("TS");
+//		vendor1.setPincode("123456");
+//		vendor1.setPhone("1234567890");
+//		vendor1.setEmail("testvendor@test.com");
+//	    
+//	    vendorServiceImpl.validateVendor(vendor1);
+//
+//	    // Invalid pincode
+//	   // Vendor vendor2 = new Vendor();
+//	    Vendor vendor2 = new Vendor();
+//	    vendor2.setId(1L);
+//		vendor2.setVendorName("Test Vendor");
+//		vendor2.setVendorCode("TESTVENDOR");
+//		vendor2.setAddress("123 Test St");
+//		vendor2.setCity("Testville");
+//		vendor2.setState("TS");
+//		vendor2.setPincode("1234");
+//		vendor2.setPhone("1234567890");
+//		vendor2.setEmail("testvendor@test.com");
+//		assertSame(InvalidDataException.class, vendorServiceImpl.validateVendor(vendor2));
+//
+////	    // Invalid phone number
+//	    Vendor vendor3 = new Vendor();
+//	    vendor1.setId(1L);
+//		vendor1.setVendorName("Test Vendor");
+//		vendor1.setVendorCode("TESTVENDOR");
+//		vendor1.setAddress("123 Test St");
+//		vendor1.setCity("Testville");
+//		vendor1.setState("TS");
+//		vendor1.setPincode("123456");
+//		vendor1.setPhone("1234560");
+//		vendor1.setEmail("testvendor@test.com");
+//		try {
+//		    vendorServiceImpl.validateVendor(vendor2);
+//		} catch (InvalidDataException e) {
+//		    assertEquals("Invalid Phone Number", e.getMessage());
+//		}
+//		
+//
+//	    // Invalid email address
+//	    Vendor vendor4 = new Vendor();
+//	    vendor1.setId(1L);
+//		vendor1.setVendorName("Test Vendor");
+//		vendor1.setVendorCode("TESTVENDOR");
+//		vendor1.setAddress("123 Test St");
+//		vendor1.setCity("Testville");
+//		vendor1.setState("TS");
+//		vendor1.setPincode("123456");
+//		vendor1.setPhone("1234567890");
+//		vendor1.setEmail("@testvendortest.com");
+//		try {
+//		    vendorServiceImpl.validateVendor(vendor2);
+//		} catch (InvalidDataException e) {
+//		    assertEquals("Invalid Email", e.getMessage());
+//		}
+//	    
+//	   
+//	}
+//
+	
+	
+	
+	//}
+	@Test
+	public void testCreateVendorInvalidPincode(){
+ {
+		
+		Vendor invalidVendor = new Vendor();
+		invalidVendor.setId(1L);
+		invalidVendor.setVendorName("Test Vendor");
+		invalidVendor.setVendorCode("TESTVENDOR");
+		invalidVendor.setAddress("123 Test St");
+		invalidVendor.setCity("Testville");
+		invalidVendor.setState("TS");
+		invalidVendor.setPincode("1234");
+		invalidVendor.setPhone("1234567890");
+		invalidVendor.setEmail("testvendor@test.com");
+		
+			
+		InvalidDataException exception = assertThrows(InvalidDataException.class, () -> {
+			vendorService.createVendor(invalidVendor);
+		});
+	 
+		String actualMessage = exception.getMessage();
+		
+		assertEquals("Invalid pincode", actualMessage);
+		assertTrue(actualMessage.contains("Invalid pincode"));
+		
+	}
+	
+	}
+	@Test
+	public void testCreateVendorInvalidEmail(){
+ {
+		
+		Vendor invalidVendor = new Vendor();
+		invalidVendor.setId(1L);
+		invalidVendor.setVendorName("Test Vendor");
+		invalidVendor.setVendorCode("TESTVENDOR");
+		invalidVendor.setAddress("123 Test St");
+		invalidVendor.setCity("Testville");
+		invalidVendor.setState("TS");
+		invalidVendor.setPincode("123456");
+		invalidVendor.setPhone("1234567890");
+		invalidVendor.setEmail("@testvendor@test.com");
+		
+			
+		InvalidDataException exception = assertThrows(InvalidDataException.class, () -> {
+			vendorService.createVendor(invalidVendor);
+		});
+	 
+		String actualMessage = exception.getMessage();
+		
+		assertEquals("Invalid email address", actualMessage);
+		assertTrue(actualMessage.contains("Invalid email address"));
+		
+	}
+	
+	}
+	@Test
+	public void testCreateVendorInvalidPhone(){
+ {
+		
+		Vendor invalidVendor = new Vendor();
+		invalidVendor.setId(1L);
+		invalidVendor.setVendorName("Test Vendor");
+		invalidVendor.setVendorCode("TESTVENDOR");
+		invalidVendor.setAddress("123 Test St");
+		invalidVendor.setCity("Testville");
+		invalidVendor.setState("TS");
+		invalidVendor.setPincode("123456");
+		invalidVendor.setPhone("1234567890123");
+		invalidVendor.setEmail("testvendor@test.com");
+		
+			
+		InvalidDataException exception = assertThrows(InvalidDataException.class, () -> {
+			vendorService.createVendor(invalidVendor);
+		});
+	 
+		String actualMessage = exception.getMessage();
+		
+		assertEquals("Invalid phone number", actualMessage);
+		assertTrue(actualMessage.contains("Invalid phone number"));
+		
+	}
+	
+	}
+	
+	
+
+	}

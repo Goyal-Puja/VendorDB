@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="VendorServiceImplTest" project="vendordb" tests="7" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.234" displayname="VendorServiceImplTest" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]">
+    <testcase name="getVendorByVendorCode" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.134" displayname="getVendorByVendorCode()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:getVendorByVendorCode()]"/>
+    <testcase name="testGetAllVendors" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.025" displayname="testGetAllVendors()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:testGetAllVendors()]"/>
+    <testcase name="updateVendor" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.016" displayname="updateVendor()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:updateVendor()]"/>
+    <testcase name="deleteVendor" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.011" displayname="deleteVendor()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:deleteVendor()]"/>
+    <testcase name="testCreateVendorInvalidPincode" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.014" displayname="testCreateVendorInvalidPincode()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:testCreateVendorInvalidPincode()]"/>
+    <testcase name="getVendorById" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.01" displayname="getVendorById()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:getVendorById()]"/>
+    <testcase name="createVendor" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.009" displayname="createVendor()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:createVendor()]"/>
+  </testsuite>
+</testrun>

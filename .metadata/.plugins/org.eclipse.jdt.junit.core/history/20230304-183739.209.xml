@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="VendorServiceImplTest" project="vendordb" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.169" displayname="VendorServiceImplTest" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]">
-    <testcase name="getVendorByVendorCode" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.129" displayname="getVendorByVendorCode()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:getVendorByVendorCode()]"/>
-    <testcase name="updateVendor" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.016" displayname="updateVendor()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:updateVendor()]"/>
-    <testcase name="getVendorById" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.008" displayname="getVendorById()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:getVendorById()]"/>
-    <testcase name="createVendor" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.008" displayname="createVendor()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:createVendor()]"/>
-  </testsuite>
-</testrun>

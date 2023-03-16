@@ -8,59 +8,54 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
 @Entity
 
 @Table(name = "vendor_info")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 
 public class Vendor {
-	
-	   @Id
-	   private Long id;
 
-	   @Column(nullable = false, unique = true)
-	   private String vendorCode;
+	@Id
+	private Long id;
 
-	   @Column(nullable = false)
-	   private String vendorName;
+	@Column(nullable = false, unique = true)
+	private String vendorCode;
 
-	   @Column(nullable = false)
-	   private String address;
+	@Column(nullable = false)
+	private String vendorName;
 
-	   @Column(nullable = false)
-	   private String city;
+	@Column(nullable = false)
+	private String address;
 
-	   @Column(nullable = false)
-	   private String state;
+	@Column(nullable = false)
+	private String city;
 
-	   @Column(nullable = false)
-	   private String pincode;
+	@Column(nullable = false)
+	private String state;
 
-	   @Column(nullable = false)
-	   private String phone;
+	@Column(nullable = false)
+	private String pincode;
 
-	   @Column(nullable = false)
-	   private String email;
-	   
-	   public Vendor() {
-		   id = (long) 1;
-		   vendorCode = "123456";
-		   vendorName = "Puja Goyal";
-		   address = "Bara Chowk";
-		   city = "Giridih";
-		   state = "Jharkhand";
-		   pincode = "815301";
-		   phone = "9874563210";
-		   email = "pujagoyal@gmail.com";
-		   
-		   
-		
-	   }
-	   
-	   public Vendor(Long id, String vendorCode, String vendorName, String address, String city, String state,
+	@Column(nullable = false)
+	private String phone;
+
+	@Column(nullable = false)
+	private String email;
+
+	public Vendor() {
+		id = (long) 1;
+		vendorCode = "123456";
+		vendorName = "Puja Goyal";
+		address = "Bara Chowk";
+		city = "Giridih";
+		state = "Jharkhand";
+		pincode = "815301";
+		phone = "9874563210";
+		email = "pujagoyal@gmail.com";
+
+	}
+
+	public Vendor(Long id, String vendorCode, String vendorName, String address, String city, String state,
 			String pincode, String phone, String email) {
 		super();
 		this.id = id;

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="VendorServiceImplTest" project="vendordb" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.151" displayname="VendorServiceImplTest" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]">
-    <testcase name="getVendorByVendorCode" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.114" displayname="getVendorByVendorCode()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:getVendorByVendorCode()]"/>
-    <testcase name="getVendorById" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.012" displayname="getVendorById()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:getVendorById()]"/>
-    <testcase name="createVendor" classname="com.example.demo.serviceimpl.VendorServiceImplTest" time="0.018" displayname="createVendor()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.serviceimpl.VendorServiceImplTest]/[method:createVendor()]"/>
-  </testsuite>
-</testrun>

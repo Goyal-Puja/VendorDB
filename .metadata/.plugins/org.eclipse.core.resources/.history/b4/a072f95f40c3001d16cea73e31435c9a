@@ -1,0 +1,61 @@
+package com.example.demo.controller;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.example.demo.entity.Vendor;
+import com.example.demo.service.VendorService;
+
+
+@SpringBootTest
+class VendorControllerTest {
+
+	@Autowired
+	private VendorController vendorController;
+	
+	@MockBean
+	private VendorService vendorService;
+	
+	@Test
+	public void testCreateVendor() {
+	    // Set up a mock vendor and service
+	    Vendor vendor = new Vendor();
+	    vendor.setVendorName("Test Vendor");
+		vendor.setVendorCode("TESTVENDOR");
+		vendor.setAddress("123 Test St");
+		vendor.setCity("Testville");
+		vendor.setState("TS");
+		vendor.setPincode("123456");
+		vendor.setPhone("1234567890");
+		vendor.setEmail("testvendor@test.com");
+	    Vendor createdVendor = new Vendor();
+	    vendor.setVendorName("Test Vendor");
+		vendor.setVendorCode("TESTVENDOR");
+		vendor.setAddress("123 Test St");
+		vendor.setCity("Testville");
+		vendor.setState("TS");
+		vendor.setPincode("123456");
+		vendor.setPhone("1234567890");
+		vendor.setEmail("testvendor@test.com");
+	    when(vendorService.createVendor(vendor)).thenReturn(createdVendor);
+
+	    // Call the method being tested
+	    ResponseEntity<Vendor> response = vendorController.createVendor(vendor);
+
+	    // Verify that the service method was called and the response is correct
+	    verify(vendorService, times(1)).createVendor(vendor);
+	    assertEquals(HttpStatus.CREATED, response.getStatusCode());
+	    assertEquals(createdVendor, response.getBody());
+	}
+
+
+}

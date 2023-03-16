@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="VendorControllerTest" project="vendordb" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.example.demo.controller.VendorControllerTest" time="0.143" displayname="VendorControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.controller.VendorControllerTest]">
+    <testcase name="testCreateVendor" classname="com.example.demo.controller.VendorControllerTest" time="0.126" displayname="testCreateVendor()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.controller.VendorControllerTest]/[method:testCreateVendor()]"/>
+    <testcase name="testGetAllVendor" classname="com.example.demo.controller.VendorControllerTest" time="0.015" displayname="testGetAllVendor()" uniqueid="[engine:junit-jupiter]/[class:com.example.demo.controller.VendorControllerTest]/[method:testGetAllVendor()]"/>
+  </testsuite>
+</testrun>
